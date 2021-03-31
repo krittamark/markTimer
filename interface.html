@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKR Stopwatch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js" integrity="sha512-aC5ZfKOuGRUiJCv+E/EIWsj49E02BQpuLQbixZe+16Lm1R6AepHZA1xvY92XBQNNbwQoqG4DXCGxwoxBFb5Q1A==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+</head>
+<body>
+    <div class="header">
+        <span class="header__content">SKR STOPWATCH</span>
+    </div>
+    <div class="timer">
+        <span class="timer__title">TOTAL TIME</span>
+        <div class="timer__display">00:00.00</div>
+    </div>
+    <div class="controller">
+        <button class="controllerBtn controllerBtn__green" id="toggleTimer">START</button>
+        <button class="controllerBtn controllerBtn__orange" id="lapTimer">LAP</button>
+        <button class="controllerBtn controllerBtn__s" id="resetTimer">RESET</button>
+    </div>
+    <div class="lapList"></div>
+    <script type="text/javascript" src="/assets/js/main.min.js"></script>
+</body>
+</html>
