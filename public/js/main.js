@@ -7,7 +7,6 @@ socket.on('setup', data => {
     });
     document.querySelector('.timer__display').innerHTML = data.time;
     data.isRunning ? setRed(document.getElementById('toggleTimer')) : '';
-    data.patch();
 });
 socket.on('lap', data => {
     let lapList = document.querySelector('.lapList');
