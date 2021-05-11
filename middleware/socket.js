@@ -57,9 +57,7 @@ module.exports = (http) => {
     }
     
     io.on('connection', (socket) => {
-        socket.emit('setup', {time: `${m}:${s}.${ms}`, lapList, isRunning: isTimerRunning, patch: () => {
-
-        }});
+        socket.emit('setup', { time: `${m}:${s}.${ms}`, lapList, isRunning: isTimerRunning });
         
         socket.on('toggleTimer', (data) => {
             if (isTimerRunning) {
@@ -83,7 +81,7 @@ module.exports = (http) => {
         });
     
         socket.on('disconnect', () => {
-    
+            
         });
     });
 };
