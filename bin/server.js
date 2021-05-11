@@ -1,15 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const http = require('http').Server(app);
 
 const server = (port) => {
-    app.set('view engine', 'pug');
     app.disable('x-powered-by');
-    const index = require('../routes/index');
-    //const api = require('../routes/api');
-    app.use('/', index);
-    //app.use('api', api);
-
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname + '/../interface.html'));
+    });
     app.use(express.static('public'));
     
     const socket = require('../middleware/socket')(http);
