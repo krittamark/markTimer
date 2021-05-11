@@ -10,7 +10,7 @@ const server = (port) => {
     app.use('/', index);
     //app.use('api', api);
 
-    app.use('/assets', express.static('public'));
+    app.use(express.static('public'));
     
     const socket = require('../middleware/socket')(http);
 
