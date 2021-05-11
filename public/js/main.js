@@ -1,4 +1,4 @@
-const socket = io('ws://krittamark.com:8081');
+const socket = io('ws://localhost:8081');
 
 socket.on('setup', data => {
     data.lapList.forEach(item => {
@@ -61,25 +61,19 @@ document.querySelector('.header').addEventListener('click', () => {
         }
     }
 });
+
 /**
  * This code will get all buttons,
  * Then add click Event Listener
  * to make button look clicked
  */
-document.querySelectorAll('.controllerBtn').forEach(ele => {
+let FunctionList = ['toggleTimer', 'lap', 'resetTimer'];
+document.querySelectorAll('.controllerBtn').forEach((ele, index) => {
     ele.addEventListener('click', () => {
+        socket.emit(FunctionList[index]);
         ele.style = 'filter: brightness(0.9);';
         setTimeout(() => ele.style = '', 100);
     })
-});
-document.getElementById('toggleTimer').addEventListener('click', () => {
-    socket.emit('toggleTimer');
-});
-document.getElementById('resetTimer').addEventListener('click', () => {
-    socket.emit('resetTimer');
-});
-document.getElementById('lapTimer').addEventListener('click', () => {
-    socket.emit('lap');
 });
 
 /**
